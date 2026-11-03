@@ -3,9 +3,9 @@ import DiwaliWishGenerator from "@/components/interactive/DiwaliWishGenerator";
 import UniversalFireworks from "@/components/fireworks/UniversalFireworks";
 
 export const metadata = {
-  title: "Festive Wishes & Greeting Studio | PATTAS’26 MKCE",
+  title: "Festive Wishes & Greeting Studio | PATTAS’26 at MKCE",
   description:
-    "Generate, customize, and share personalized Diwali greeting cards with friends, professors, and family for PATTAS’26 at M. Kumarasamy College of Engineering.",
+    "Generate, customize, and share personalized Diwali greeting cards with friends, professors, and family for PATTAS’26 at MKCE (M. Kumarasamy College of Engineering, Karur).",
 };
 
 export default function WishesPage() {

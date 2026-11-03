@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Flame,
   Calendar,
   Music,
 } from "lucide-react";
 import CinematicHero from "@/components/hero/CinematicHero";
+import CinematicIntro from "@/components/hero/CinematicIntro";
 import UniversalFireworks from "@/components/fireworks/UniversalFireworks";
 import FestivalCountdown from "@/components/hero/FestivalCountdown";
 import EventCard3D from "@/components/events/EventCard3D";
@@ -23,6 +24,10 @@ export default function HomePage() {
   const [selectedEvent, setSelectedEvent] = useState<EventData | null>(null);
   const [eventFilter, setEventFilter] = useState<"All" | "Team" | "Individual">("All");
 
+  useEffect(() => {
+    document.title = "PATTAS’26 at MKCE";
+  }, []);
+
   const filteredEvents = EVENTS.filter(
     (e) => eventFilter === "All" || e.participationType === eventFilter
   );
@@ -34,6 +39,8 @@ export default function HomePage() {
 
   return (
     <div className="relative overflow-hidden">
+      {/* 0. Cinematic Intro Page (First-time / Replay interactive experience) */}
+      <CinematicIntro />
       {/* 1. Universal Realistic Diwali Fireworks Engine (Full-screen Background) */}
       <UniversalFireworks
         preset="sky"

@@ -28,6 +28,20 @@ export function generateStaticParams() {
   return Array.from(allIds).map((id) => ({ id }));
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const event = findEventByIdOrSlug(id);
+  if (!event) return { title: "Event Not Found | PATTAS’26 at MKCE" };
+  return {
+    title: `${event.title} | PATTAS’26 at MKCE`,
+    description: event.description,
+  };
+}
+
 export default async function EventDetailPage({
   params,
 }: {

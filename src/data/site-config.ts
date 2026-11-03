@@ -1,7 +1,9 @@
 export const SITE_CONFIG = {
-  name: "PATTAS’26",
+  name: "PATTAS’26 at MKCE",
+  officialWebsiteName: "PATTAS’26 at MKCE",
+  metadataTitle: "PATTAS’26 at MKCE | M. Kumarasamy College of Engineering",
   primaryTagline: "LET THE NIGHT GLOW.",
-  secondaryTagline: "Celebrating Light, Tradition & Togetherness.",
+  secondaryTagline: "Celebrating Light, Tradition & Togetherness",
   eventDate: "2026-11-04",
   eventDisplayDate: "04 November 2026",
   academicYear: "2026–2027 (Odd Semester)",

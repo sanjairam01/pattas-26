@@ -3,9 +3,9 @@ import RegistrationSection from "@/components/registration/RegistrationSection";
 import UniversalFireworks from "@/components/fireworks/UniversalFireworks";
 
 export const metadata = {
-  title: "Official Registration | PATTAS’26 MKCE",
+  title: "Official Registration | PATTAS’26 at MKCE",
   description:
-    "Official Registration Portal for PATTAS’26 Diwali Festival at M. Kumarasamy College of Engineering. Scan the verified poster QR code or access direct Google Form links.",
+    "Official Registration Portal for PATTAS’26 at MKCE (M. Kumarasamy College of Engineering, Karur). Scan the verified poster QR code or access direct Google Form links.",
 };
 
 export default function RegistrationPage() {

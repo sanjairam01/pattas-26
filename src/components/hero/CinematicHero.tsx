@@ -92,9 +92,9 @@ export default function CinematicHero() {
           }`}
         >
           <span className="w-2 h-2 rounded-full bg-fest-gold animate-ping" />
-          <span>M. Kumarasamy College of Engineering</span>
+          <span>PATTAS’26 at MKCE</span>
           <span className="text-fest-cream/60">•</span>
-          <span className="text-fest-cream/80">Karur</span>
+          <span className="text-fest-cream/80">M. Kumarasamy College of Engineering</span>
         </div>
 
         {/* Master 3D Logo / Typography with Mouse-Responsive Parallax */}
@@ -115,7 +115,7 @@ export default function CinematicHero() {
           <div className="relative group cursor-pointer overflow-hidden rounded-2xl">
             <Image
               src="/assets/brand/pattas26-logo.png"
-              alt="PATTAS'26 Official 3D Typography Logo"
+              alt="PATTAS’26 at MKCE Official 3D Typography Logo"
               width={580}
               height={240}
               className="w-full h-auto object-contain filter drop-shadow-2xl hover:scale-[1.02] transition-all duration-300"

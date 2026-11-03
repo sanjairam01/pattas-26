@@ -75,23 +75,30 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Left: PATTAS'26 Official 3D Branding */}
+        {/* Left: PATTAS’26 at MKCE Official 3D Branding */}
         <Link
           href="/"
+          title="PATTAS’26 at MKCE"
+          aria-label="PATTAS’26 at MKCE Home"
           className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-fest-gold rounded-xl p-1"
         >
-          {/* Official PATTAS'26 3D Logo */}
+          {/* Official PATTAS'26 3D Logo with at MKCE Badge */}
           <div className="flex flex-col">
-            <div className="relative h-7 sm:h-8 w-28 sm:w-36 group-hover:scale-105 transition-transform duration-200">
-              <Image
-                src="/assets/brand/pattas26-logo.png"
-                alt="PATTAS’26 Official Logo"
-                fill
-                className="object-contain object-left filter drop-shadow-[0_0_12px_rgba(255,189,53,0.65)]"
-                priority
-              />
+            <div className="flex items-center gap-1.5">
+              <div className="relative h-7 sm:h-8 w-24 sm:w-32 group-hover:scale-105 transition-transform duration-200">
+                <Image
+                  src="/assets/brand/pattas26-logo.png"
+                  alt="PATTAS’26 at MKCE Official Logo"
+                  fill
+                  className="object-contain object-left filter drop-shadow-[0_0_12px_rgba(255,189,53,0.65)]"
+                  priority
+                />
+              </div>
+              <span className="font-serif font-black text-[11px] sm:text-xs tracking-wide text-fest-brightGold drop-shadow-sm whitespace-nowrap bg-fest-royal/50 px-1.5 py-0.5 rounded border border-fest-gold/30">
+                at MKCE
+              </span>
             </div>
-            <span className="text-[9px] sm:text-[10px] text-fest-cream/65 tracking-wider truncate max-w-[130px] sm:max-w-none">
+            <span className="text-[8.5px] sm:text-[9.5px] text-fest-cream/65 tracking-wider truncate max-w-[130px] sm:max-w-none">
               M. Kumarasamy College of Engineering
             </span>
           </div>

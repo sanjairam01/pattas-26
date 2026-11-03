@@ -3,9 +3,9 @@ import RulesExplorer from "@/components/rules/RulesExplorer";
 import UniversalFireworks from "@/components/fireworks/UniversalFireworks";
 
 export const metadata = {
-  title: "Rules & Regulations | PATTAS’26 MKCE",
+  title: "Rules & Regulations | PATTAS’26 at MKCE",
   description:
-    "Official Competition Rules, Regulations, Permitted Materials, and Disqualification Criteria for all 10 PATTAS’26 events at M. Kumarasamy College of Engineering.",
+    "Official Competition Rules, Regulations, Permitted Materials, and Disqualification Criteria for all 10 PATTAS’26 at MKCE events at M. Kumarasamy College of Engineering.",
 };
 
 export default function RulesPage() {

@@ -10,9 +10,9 @@ import {
 import UniversalFireworks from "@/components/fireworks/UniversalFireworks";
 
 export const metadata = {
-  title: "About PATTAS’26 | M. Kumarasamy College of Engineering",
+  title: "About | PATTAS’26 at MKCE",
   description:
-    "Learn about PATTAS’26, the premier Diwali festival celebration at M. Kumarasamy College of Engineering (MKCE), Karur. Discover the philosophy of Light, Tradition & Togetherness.",
+    "Learn about PATTAS’26 at MKCE, the premier Diwali festival celebration at M. Kumarasamy College of Engineering (MKCE), Karur. Discover the philosophy of Light, Tradition & Togetherness.",
 };
 
 export default function AboutPage() {

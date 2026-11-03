@@ -24,13 +24,18 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <div className="space-y-1">
-                <div className="relative h-8 w-36">
-                  <Image
-                    src="/assets/brand/pattas26-logo.png"
-                    alt="PATTAS’26 Master Logo"
-                    fill
-                    className="object-contain object-left filter drop-shadow-[0_0_10px_rgba(255,189,53,0.55)]"
-                  />
+                <div className="flex items-center gap-2">
+                  <div className="relative h-8 w-36">
+                    <Image
+                      src="/assets/brand/pattas26-logo.png"
+                      alt="PATTAS’26 at MKCE Master Logo"
+                      fill
+                      className="object-contain object-left filter drop-shadow-[0_0_10px_rgba(255,189,53,0.55)]"
+                    />
+                  </div>
+                  <span className="font-serif font-black text-xs sm:text-sm tracking-wide text-fest-brightGold drop-shadow-sm whitespace-nowrap bg-fest-royal/50 px-2 py-0.5 rounded border border-fest-gold/30">
+                    at MKCE
+                  </span>
                 </div>
                 <p className="text-[11px] text-fest-brightGold font-medium">
                   Celebrating Light, Tradition &amp; Togetherness
@@ -164,7 +169,7 @@ export default function Footer() {
         {/* Bottom Bar: Copyright & Replay Intro */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-fest-cream/60">
           <p className="text-center sm:text-left">
-            © 2026 M. Kumarasamy College of Engineering (MKCE). PATTAS’26 All Rights Reserved.
+            © 2026 PATTAS’26 at MKCE | M. Kumarasamy College of Engineering. All Rights Reserved.
           </p>
           <div className="flex items-center gap-4">
             <button

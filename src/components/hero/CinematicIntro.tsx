@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Sparkles, ArrowRight, Volume2, VolumeX, Calendar, Flame } from "lucide-react";
 import { playBurstSound } from "@/lib/fireworks-dispatcher";
@@ -120,30 +120,6 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
     soundRef.current = soundEnabled;
   }, [soundEnabled]);
 
-  // Handle Enter The Festival (< 300ms GPU-accelerated smooth transition)
-  const handleEnter = useCallback(() => {
-    if (isExiting) return;
-    setIsExiting(true);
-    sessionStorage.setItem("pattas26_intro_seen", "true");
-
-    setTimeout(() => {
-      setIsVisible(false);
-      onComplete?.();
-    }, 280);
-  }, [isExiting, onComplete]);
-
-  // Handle Skip Intro (Instant < 200ms smooth transition)
-  const handleSkip = useCallback(() => {
-    if (isExiting) return;
-    setIsExiting(true);
-    sessionStorage.setItem("pattas26_intro_seen", "true");
-
-    setTimeout(() => {
-      setIsVisible(false);
-      onComplete?.();
-    }, 180);
-  }, [isExiting, onComplete]);
-
   // Fast Navigation & Progressive 2.5-Second Timeline Setup
   useEffect(() => {
     // Check if user already saw the intro during this session or prefers reduced motion
@@ -193,7 +169,31 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
       clearTimeout(t5);
       clearTimeout(tAuto);
     };
-  }, [onComplete, handleEnter]);
+  }, [onComplete]);
+
+  // Handle Enter The Festival (< 300ms GPU-accelerated smooth transition)
+  const handleEnter = () => {
+    if (isExiting) return;
+    setIsExiting(true);
+    sessionStorage.setItem("pattas26_intro_seen", "true");
+
+    setTimeout(() => {
+      setIsVisible(false);
+      onComplete?.();
+    }, 280);
+  };
+
+  // Handle Skip Intro (Instant < 200ms smooth transition)
+  const handleSkip = () => {
+    if (isExiting) return;
+    setIsExiting(true);
+    sessionStorage.setItem("pattas26_intro_seen", "true");
+
+    setTimeout(() => {
+      setIsVisible(false);
+      onComplete?.();
+    }, 180);
+  };
 
   // High-Performance Lightweight Canvas Fireworks Simulation (Target 60 FPS)
   useEffect(() => {
@@ -267,8 +267,8 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
           pattern === "willow"
             ? INTRO_PALETTES.gold[Math.floor(Math.random() * INTRO_PALETTES.gold.length)]
             : Math.random() < 0.75
-            ? dominantColor
-            : palette[Math.floor(Math.random() * palette.length)];
+              ? dominantColor
+              : palette[Math.floor(Math.random() * palette.length)];
 
         let vx = 0;
         let vy = 0;
@@ -425,9 +425,8 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-fest-midnight overflow-hidden select-none will-change-transform transition-all duration-300 ease-out ${
-        isExiting ? "opacity-0 scale-102 pointer-events-none blur-[1px]" : "opacity-100 scale-100"
-      }`}
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-fest-midnight overflow-hidden select-none will-change-transform transition-all duration-300 ease-out ${isExiting ? "opacity-0 scale-102 pointer-events-none blur-[1px]" : "opacity-100 scale-100"
+        }`}
     >
       {/* 1. Deep Midnight Navy Background (0.0s - 0.3s) with Radial Vignette */}
       <div className="absolute inset-0 bg-radial-gradient from-[#0d1b3e] via-[#071329] to-[#030814] pointer-events-none" />
@@ -495,21 +494,19 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
       <div className="relative z-20 flex flex-col items-center text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-5">
         {/* College Header Badge (Stage 1: 0.3s) */}
         <div
-          className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-panel border border-fest-gold/40 text-fest-brightGold text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-gold-sm transition-all duration-400 ease-out transform ${
-            stage >= 1 ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none"
-          }`}
+          className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass-panel border border-fest-gold/40 text-fest-brightGold text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-gold-sm transition-all duration-400 ease-out transform ${stage >= 1 ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none"
+            }`}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-fest-gold animate-ping" />
-          <span>M. Kumarasamy College of Engineering • Karur</span>
+          <span>PATTAS’26 at MKCE • M. Kumarasamy College of Engineering</span>
         </div>
 
         {/* Stage 1 (0.3s - 0.8s): 3D PATTAS'26 Logo Smooth Zoom-In with Golden Glow */}
         <div
-          className={`relative transition-all duration-500 ease-out transform ${
-            stage >= 1
-              ? "opacity-100 scale-100 translate-y-0"
-              : "opacity-0 scale-80 translate-y-4 pointer-events-none"
-          }`}
+          className={`relative transition-all duration-500 ease-out transform ${stage >= 1
+            ? "opacity-100 scale-100 translate-y-0"
+            : "opacity-0 scale-80 translate-y-4 pointer-events-none"
+            }`}
         >
           {/* Ambient Radiant Glow behind Logo */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[480px] h-[140px] sm:h-[190px] bg-gradient-to-r from-fest-gold/40 via-fest-orange/30 to-fest-magenta/25 blur-3xl rounded-full pointer-events-none animate-pulse" />
@@ -518,7 +515,7 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
           <div className="relative max-w-[270px] sm:max-w-md md:max-w-lg mx-auto py-1 group">
             <Image
               src="/assets/brand/pattas26-logo.png"
-              alt="PATTAS'26 Official 3D Festival Logo"
+              alt="PATTAS’26 at MKCE Official 3D Festival Logo"
               width={540}
               height={220}
               className="w-full h-auto object-contain filter drop-shadow-[0_0_35px_rgba(255,189,53,0.8)] hover:scale-102 transition-transform duration-300"
@@ -528,13 +525,17 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
             {/* Subtle Light Reflection Sheen Sweep across Logo */}
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full animate-[shimmer_2.5s_infinite] bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none rounded-2xl" />
           </div>
+
+          {/* Official Branding Typography */}
+          <h1 className="font-serif font-black text-2xl sm:text-3xl md:text-4xl tracking-wider text-gold-gradient uppercase drop-shadow-[0_2px_16px_rgba(255,189,53,0.7)] pt-2">
+            PATTAS’26 at MKCE
+          </h1>
         </div>
 
         {/* Stage 3 (1.3s - 1.7s): Realistic 3D Diya Flame Animation */}
         <div
-          className={`transition-all duration-400 ease-out flex flex-col items-center justify-center transform ${
-            stage >= 3 ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-75 translate-y-3 pointer-events-none"
-          }`}
+          className={`transition-all duration-400 ease-out flex flex-col items-center justify-center transform ${stage >= 3 ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-75 translate-y-3 pointer-events-none"
+            }`}
         >
           <div className="relative flex flex-col items-center">
             {/* Ambient Warm Flame Bloom */}
@@ -557,11 +558,10 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
 
         {/* Stage 4 (1.7s - 2.1s): Festival Tagline & Event Date Reveal */}
         <div
-          className={`space-y-2.5 transition-all duration-400 ease-out transform ${
-            stage >= 4
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-3 pointer-events-none"
-          }`}
+          className={`space-y-2.5 transition-all duration-400 ease-out transform ${stage >= 4
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-3 pointer-events-none"
+            }`}
         >
           {/* Festival Tagline */}
           <p className="font-serif text-sm sm:text-xl text-fest-cream/95 italic font-light tracking-wide text-gold-glow max-w-xl mx-auto drop-shadow-sm">
@@ -583,11 +583,10 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
 
         {/* Stage 5 (2.1s - 2.5s): Animated ENTER THE FESTIVAL Button */}
         <div
-          className={`pt-1 transition-all duration-400 ease-out transform ${
-            stage >= 5
-              ? "opacity-100 translate-y-0 scale-100"
-              : "opacity-0 translate-y-4 scale-90 pointer-events-none"
-          }`}
+          className={`pt-1 transition-all duration-400 ease-out transform ${stage >= 5
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-4 scale-90 pointer-events-none"
+            }`}
           onMouseEnter={() => {
             isHoveringButtonRef.current = true;
           }}
