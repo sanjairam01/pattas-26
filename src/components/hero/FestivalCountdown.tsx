@@ -12,7 +12,6 @@ import {
   VolumeX,
   Flame,
   ArrowRight,
-  RotateCcw,
 } from "lucide-react";
 import {
   triggerFirework,
@@ -642,19 +641,6 @@ export default function FestivalCountdown() {
               <ArrowRight className="w-4 h-4 text-fest-gold group-hover:translate-x-1 transition-transform" />
               <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
             </Link>
-
-            {/* Replay Sequence Button (Allows reviewing the grand sequence at any time) */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                startSimulation(4);
-              }}
-              title="Replay the 4-stage celebration sequence"
-              className="px-3 py-2.5 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-fest-cream border border-fest-gold/30 flex items-center gap-1.5 transition-all cursor-pointer"
-            >
-              <RotateCcw className="w-3.5 h-3.5 text-fest-gold" />
-              <span className="hidden sm:inline">Replay Celebration</span>
-            </button>
           </div>
         </div>
       )}
