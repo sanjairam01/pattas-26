@@ -3,7 +3,7 @@ import ScheduleTimeline from "@/components/schedule/ScheduleTimeline";
 import UniversalFireworks from "@/components/fireworks/UniversalFireworks";
 
 export const metadata = {
-  title: "Festival Schedule & Timeline | PATTAS’26 at MKCE",
+  title: "PATTAS'26 at MKCE",
   description:
     "Official schedule and timeline for PATTAS’26 at MKCE on 04 November 2026. Explore competitions from 01:30 PM, Dance Showcase at 03:00 PM, and DJ Flash Mob from 04:00 PM to 06:00 PM.",
 };

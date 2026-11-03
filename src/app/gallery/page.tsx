@@ -3,7 +3,7 @@ import FestivalGallery from "@/components/gallery/FestivalGallery";
 import UniversalFireworks from "@/components/fireworks/UniversalFireworks";
 
 export const metadata = {
-  title: "Festival Gallery & Posters | PATTAS’26 at MKCE",
+  title: "PATTAS'26 at MKCE",
   description:
     "Explore the official festival posters, campus highlights, and event teasers for PATTAS’26 at MKCE (M. Kumarasamy College of Engineering, Karur).",
 };

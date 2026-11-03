@@ -24,7 +24,7 @@ export default function HomePage() {
   const [eventFilter, setEventFilter] = useState<"All" | "Team" | "Individual">("All");
 
   useEffect(() => {
-    document.title = "PATTAS’26 at MKCE";
+    document.title = "PATTAS'26 at MKCE";
   }, []);
 
   const filteredEvents = EVENTS.filter(

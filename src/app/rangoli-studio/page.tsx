@@ -3,7 +3,7 @@ import RangoliCreator from "@/components/interactive/RangoliCreator";
 import UniversalFireworks from "@/components/fireworks/UniversalFireworks";
 
 export const metadata = {
-  title: "Interactive Rangoli Studio | PATTAS’26 at MKCE",
+  title: "PATTAS'26 at MKCE",
   description:
     "Design and draw sacred symmetric 8-fold and 12-fold traditional Diwali mandalas and kolams for PATTAS’26 at MKCE. Choose festive colors and download your Rangoli masterpiece.",
 };
