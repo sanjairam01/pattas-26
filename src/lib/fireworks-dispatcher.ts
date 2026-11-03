@@ -28,9 +28,25 @@ export type FireworkPalette =
 
 export type FireworkIntensity = "subtle" | "medium" | "high" | "grand";
 
-let currentIntensity: FireworkIntensity = "high";
+let currentIntensity: FireworkIntensity = "grand";
 
 export function getFireworkIntensity(): FireworkIntensity {
+  if (typeof window !== "undefined") {
+    try {
+      const v2Migrated = localStorage.getItem("pattas26_intensity_v2");
+      if (!v2Migrated) {
+        localStorage.setItem("pattas26_firework_intensity", "grand");
+        localStorage.setItem("pattas26_intensity_v2", "true");
+        currentIntensity = "grand";
+        return "grand";
+      }
+      const stored = localStorage.getItem("pattas26_firework_intensity") as FireworkIntensity;
+      if (stored && ["subtle", "medium", "high", "grand"].includes(stored)) {
+        currentIntensity = stored;
+        return stored;
+      }
+    } catch {}
+  }
   return currentIntensity;
 }
 
@@ -39,6 +55,7 @@ export function setFireworkIntensity(intensity: FireworkIntensity): void {
   if (typeof window !== "undefined") {
     try {
       localStorage.setItem("pattas26_firework_intensity", intensity);
+      localStorage.setItem("pattas26_intensity_v2", "true");
       window.dispatchEvent(
         new CustomEvent("pattas:intensity-change", { detail: { intensity } })
       );

@@ -23,7 +23,7 @@ import {
 export default function FireworksController() {
   const [isOpen, setIsOpen] = useState(false);
   const [soundOn, setSoundOn] = useState(false);
-  const [intensity, setIntensity] = useState<FireworkIntensity>("high");
+  const [intensity, setIntensity] = useState<FireworkIntensity>("grand");
   const [isFiring, setIsFiring] = useState(false);
 
   useEffect(() => {

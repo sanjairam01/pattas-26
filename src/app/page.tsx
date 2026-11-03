@@ -42,7 +42,7 @@ export default function HomePage() {
       <UniversalFireworks
         preset="sky"
         colorPalette="diwali"
-        intensity="high"
+        intensity="grand"
         enableInteraction={true}
         zIndex={0}
       />

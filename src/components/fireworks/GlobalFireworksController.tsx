@@ -15,7 +15,7 @@ import {
 export default function GlobalFireworksController() {
   const [soundOn, setSoundOn] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [intensity, setIntensity] = useState<FireworkIntensity>("high");
+  const [intensity, setIntensity] = useState<FireworkIntensity>("grand");
   const [isFiring, setIsFiring] = useState(false);
 
   useEffect(() => {

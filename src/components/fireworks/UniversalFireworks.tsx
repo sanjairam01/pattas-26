@@ -224,7 +224,7 @@ const SMOKE_POOL_SIZE = 120;
 const FLASH_POOL_SIZE = 12;
 
 export default function UniversalFireworks({
-  intensity = "high",
+  intensity = "grand",
   colorPalette = "diwali",
   customColors,
   preset = "sky",
