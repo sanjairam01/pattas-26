@@ -563,29 +563,33 @@ export default function FestivalCountdown() {
       ) : (
         /* ==================== STAGE 3 & 4: CELEBRATION REVEAL ==================== */
         <div className="relative z-10 py-6 text-center space-y-6 animate-in fade-in zoom-in-95 duration-700">
-          {/* Traditional Illuminated Diya Flame & Big Glowing Logo */}
-          <div className="flex items-center justify-center gap-3 sm:gap-6">
-            {/* Left Diya */}
-            <div className="relative w-10 h-10 flex items-center justify-center flex-shrink-0">
-              <span className="absolute -top-1.5 w-3 h-5 rounded-full bg-gradient-to-t from-fest-orange via-fest-gold to-white animate-pulse blur-[1px]" />
-              <Flame className="w-8 h-8 text-fest-gold fill-fest-brightGold drop-shadow-[0_0_15px_rgba(255,189,53,0.9)] animate-pulse" />
+          {/* Traditional Illuminated Diya Flames & Grand Big Glowing Logo */}
+          <div className="relative flex items-center justify-center my-1 sm:my-3">
+            {/* Radial golden background aura */}
+            <div className="absolute inset-0 max-w-xl mx-auto bg-gradient-to-r from-fest-orange/20 via-fest-gold/35 to-fest-orange/20 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Left Diya Flame */}
+            <div className="hidden sm:flex relative w-12 h-12 items-center justify-center flex-shrink-0 mr-2 md:mr-4">
+              <span className="absolute -top-2 w-3.5 h-6 rounded-full bg-gradient-to-t from-fest-orange via-fest-gold to-white animate-pulse blur-[1px]" />
+              <Flame className="w-9 h-9 text-fest-gold fill-fest-brightGold drop-shadow-[0_0_20px_rgba(255,189,53,0.95)] animate-pulse" />
             </div>
 
-            {/* Big Glowing Logo */}
-            <div className="relative w-72 sm:w-96 md:w-[440px] h-28 sm:h-36 md:h-40">
+            {/* Grand Sized Glowing Logo (Dominant centerpiece) */}
+            <div className="relative w-full max-w-[340px] sm:max-w-[500px] md:max-w-[620px] h-36 sm:h-48 md:h-60 transition-transform duration-500 hover:scale-[1.03]">
               <Image
                 src="/assets/brand/pattas26-logo.png"
                 alt="PATTAS'26 Official Logo"
                 fill
-                className="object-contain filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 340px, (max-width: 768px) 500px, 620px"
+                className="object-contain filter drop-shadow-[0_12px_30px_rgba(255,189,53,0.4)] drop-shadow-[0_8px_25px_rgba(0,0,0,0.8)]"
                 priority
               />
             </div>
 
-            {/* Right Diya */}
-            <div className="relative w-10 h-10 flex items-center justify-center flex-shrink-0">
-              <span className="absolute -top-1.5 w-3 h-5 rounded-full bg-gradient-to-t from-fest-orange via-fest-gold to-white animate-pulse blur-[1px]" />
-              <Flame className="w-8 h-8 text-fest-gold fill-fest-brightGold drop-shadow-[0_0_15px_rgba(255,189,53,0.9)] animate-pulse" />
+            {/* Right Diya Flame */}
+            <div className="hidden sm:flex relative w-12 h-12 items-center justify-center flex-shrink-0 ml-2 md:ml-4">
+              <span className="absolute -top-2 w-3.5 h-6 rounded-full bg-gradient-to-t from-fest-orange via-fest-gold to-white animate-pulse blur-[1px]" />
+              <Flame className="w-9 h-9 text-fest-gold fill-fest-brightGold drop-shadow-[0_0_20px_rgba(255,189,53,0.95)] animate-pulse" />
             </div>
           </div>
 
