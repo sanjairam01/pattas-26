@@ -161,22 +161,12 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Replay Intro */}
+        {/* Bottom Bar: Copyright & Links */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-fest-cream/60">
           <p className="text-center sm:text-left">
             © 2026 PATTAS’26 at MKCE | M. Kumarasamy College of Engineering. All Rights Reserved.
           </p>
           <div className="flex items-center gap-4">
-            <button
-              onClick={() => {
-                sessionStorage.removeItem("pattas26_intro_seen");
-                window.location.reload();
-              }}
-              className="hover:text-fest-gold transition-colors underline"
-            >
-              Replay Cinematic Intro
-            </button>
-            <span>•</span>
             <Link href="/rules" className="hover:text-fest-gold transition-colors">
               Rules &amp; Regulations
             </Link>

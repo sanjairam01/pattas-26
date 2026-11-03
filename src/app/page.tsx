@@ -7,7 +7,6 @@ import {
   Music,
 } from "lucide-react";
 import CinematicHero from "@/components/hero/CinematicHero";
-import CinematicIntro from "@/components/hero/CinematicIntro";
 import UniversalFireworks from "@/components/fireworks/UniversalFireworks";
 import FestivalCountdown from "@/components/hero/FestivalCountdown";
 import EventCard3D from "@/components/events/EventCard3D";
@@ -39,8 +38,6 @@ export default function HomePage() {
 
   return (
     <div className="relative overflow-hidden">
-      {/* 0. Cinematic Intro Page (First-time / Replay interactive experience) */}
-      <CinematicIntro />
       {/* 1. Universal Realistic Diwali Fireworks Engine (Full-screen Background) */}
       <UniversalFireworks
         preset="sky"
