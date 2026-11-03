@@ -412,17 +412,6 @@ export default function FestivalCountdown() {
     setSimTargetTime(Date.now() + secondsAhead * 1000);
   };
 
-  const resetToRealTarget = () => {
-    hasTriggeredRef.current = false;
-    setIsSimulated(false);
-    setSimTargetTime(null);
-    setCelebrationStage("idle");
-    setHasCelebrated(false);
-    try {
-      localStorage.removeItem("pattas26_countdown_celebrated");
-    } catch {}
-  };
-
   // If festival has completely concluded (past 6 PM on event day)
   if (timeLeft.isCompleted && !isSimulated) {
     return (
@@ -556,61 +545,47 @@ export default function FestivalCountdown() {
             ))}
           </div>
 
-          {/* Bottom Bar: Calendar Add & Subtle Simulation trigger */}
+          {/* Bottom Bar: Calendar Add */}
           <div className="pt-2 border-t border-fest-gold/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-fest-cream/75">
             <div className="flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-fest-gold" />
               <span>Venue: M. Kumarasamy College of Engineering, Karur</span>
             </div>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={handleAddToCalendar}
-                className="btn-glass-gold px-4 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-transform cursor-pointer"
-              >
-                <Bell className="w-3 h-3 text-fest-brightGold" />
-                <span>Add to Calendar</span>
-              </button>
-
-              {/* Dev Simulation button: enables instant verification without modifying production target date */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  startSimulation(5);
-                }}
-                title="Test completion animation (5 second countdown)"
-                className="px-2.5 py-1 rounded-full text-[10px] font-mono bg-white/5 hover:bg-fest-gold/20 text-fest-gold/80 border border-fest-gold/30 transition-colors cursor-pointer"
-              >
-                Test 5s
-              </button>
-            </div>
+            <button
+              onClick={handleAddToCalendar}
+              className="btn-glass-gold px-4 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-transform cursor-pointer"
+            >
+              <Bell className="w-3 h-3 text-fest-brightGold" />
+              <span>Add to Calendar</span>
+            </button>
           </div>
         </div>
       ) : (
         /* ==================== STAGE 3 & 4: CELEBRATION REVEAL ==================== */
-        <div className="relative z-10 py-6 text-center space-y-5 animate-in fade-in zoom-in-95 duration-700">
-          {/* Traditional Illuminated Diya Flame SVG & Glowing Logo */}
-          <div className="flex items-center justify-center gap-3">
+        <div className="relative z-10 py-6 text-center space-y-6 animate-in fade-in zoom-in-95 duration-700">
+          {/* Traditional Illuminated Diya Flame & Big Glowing Logo */}
+          <div className="flex items-center justify-center gap-3 sm:gap-6">
             {/* Left Diya */}
-            <div className="relative w-8 h-8 flex items-center justify-center">
-              <span className="absolute -top-1 w-2.5 h-4 rounded-full bg-gradient-to-t from-fest-orange via-fest-gold to-white animate-pulse blur-[1px]" />
-              <Flame className="w-6 h-6 text-fest-gold fill-fest-brightGold drop-shadow-[0_0_12px_rgba(255,189,53,0.9)] animate-pulse" />
+            <div className="relative w-10 h-10 flex items-center justify-center flex-shrink-0">
+              <span className="absolute -top-1.5 w-3 h-5 rounded-full bg-gradient-to-t from-fest-orange via-fest-gold to-white animate-pulse blur-[1px]" />
+              <Flame className="w-8 h-8 text-fest-gold fill-fest-brightGold drop-shadow-[0_0_15px_rgba(255,189,53,0.9)] animate-pulse" />
             </div>
 
-            {/* Glowing Logo */}
-            <div className="relative w-44 sm:w-56 h-14">
+            {/* Big Glowing Logo */}
+            <div className="relative w-72 sm:w-96 md:w-[440px] h-28 sm:h-36 md:h-40">
               <Image
                 src="/assets/brand/pattas26-logo.png"
                 alt="PATTAS'26 Official Logo"
                 fill
-                className="object-contain filter drop-shadow-2xl"
+                className="object-contain filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform duration-300"
                 priority
               />
             </div>
 
             {/* Right Diya */}
-            <div className="relative w-8 h-8 flex items-center justify-center">
-              <span className="absolute -top-1 w-2.5 h-4 rounded-full bg-gradient-to-t from-fest-orange via-fest-gold to-white animate-pulse blur-[1px]" />
-              <Flame className="w-6 h-6 text-fest-gold fill-fest-brightGold drop-shadow-[0_0_12px_rgba(255,189,53,0.9)] animate-pulse" />
+            <div className="relative w-10 h-10 flex items-center justify-center flex-shrink-0">
+              <span className="absolute -top-1.5 w-3 h-5 rounded-full bg-gradient-to-t from-fest-orange via-fest-gold to-white animate-pulse blur-[1px]" />
+              <Flame className="w-8 h-8 text-fest-gold fill-fest-brightGold drop-shadow-[0_0_15px_rgba(255,189,53,0.9)] animate-pulse" />
             </div>
           </div>
 
@@ -677,21 +652,6 @@ export default function FestivalCountdown() {
               <span className="hidden sm:inline">Replay Celebration</span>
             </button>
           </div>
-
-          {/* If simulated, provide quick reset */}
-          {isSimulated && (
-            <div className="pt-2">
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  resetToRealTarget();
-                }}
-                className="text-[11px] text-fest-gold/70 underline hover:text-fest-gold cursor-pointer"
-              >
-                Reset to Official 04 Nov 2026 Target
-              </button>
-            </div>
-          )}
         </div>
       )}
     </div>
