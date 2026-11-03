@@ -1,0 +1,43 @@
+export const SITE_CONFIG = {
+  name: "PATTAS’26",
+  primaryTagline: "LET THE NIGHT GLOW.",
+  secondaryTagline: "Celebrating Light, Tradition & Togetherness.",
+  eventDate: "2026-11-04",
+  eventDisplayDate: "04 November 2026",
+  academicYear: "2026–2027 (Odd Semester)",
+  institution: {
+    name: "M. Kumarasamy College of Engineering",
+    shortName: "MKCE",
+    type: "Autonomous Institution | Affiliated to Anna University Chennai",
+    approvedBy: "Approved by AICTE | Accredited by NBA and NAAC with 'A' Grade",
+    ranking: "NIRF Innovation Band 201-300 | 25 Years of Academic Excellence",
+    address: "Thalavapalayam, Karur - 639 113, Tamilnadu, India",
+    officialWebsite: "https://mkce.ac.in",
+    clubs: ["Agastya Fine Arts Club", "MKCE Student Affairs", "MKCE Cultural Council"],
+    phone: "+91 4324 272155 / 270755",
+    email: "info@mkce.ac.in",
+    officialLogoUrl: "/assets/brand/mkce-official-logo.png",
+  },
+  registration: {
+    officialQrCodeImage: "/assets/brand/pattas26-registration-qr.png",
+    decodedDestinationUrl: "https://qrr.to/8f1ebaed",
+    rulesPdfUrl: "/assets/docs/pattas26-rules-and-regulations.pdf",
+    statusNote:
+      "Official registration links sourced directly from the MKCE Agastya Arts Club event poster and rules document.",
+  },
+  socialLinks: {
+    website: "https://mkce.ac.in",
+    instagram: "https://www.instagram.com/mkce_official/",
+    youtube: "https://www.youtube.com/@mkce_karur",
+    linkedin: "https://www.linkedin.com/school/mkcekarur/",
+  },
+  navItems: [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Events", href: "/events" },
+    { label: "Schedule", href: "/schedule" },
+    { label: "Rules", href: "/rules" },
+    { label: "Rangoli Studio", href: "/rangoli-studio" },
+    { label: "Wishes", href: "/wishes" },
+  ],
+};
